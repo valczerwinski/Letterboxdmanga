@@ -8,6 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
+        // Permet d'associer chaque note à un volume précis.
         Schema::table('manga_reviews', function (Blueprint $table) {
             $table->unsignedInteger('volume_number')->nullable()->after('manga_id');
         });

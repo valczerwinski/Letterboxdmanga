@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Storage;
 class MangaController extends Controller
 {
 
-public function create(Request $request){
+    // Valide les données du formulaire et enregistre le manga avec son image.
+    public function create(Request $request){
         $validatedData = $request->validate([
             'titre' => ['required', 'string', 'max:255'],
             'author' => ['required', 'string', 'max:255'],
@@ -31,6 +32,7 @@ public function create(Request $request){
 
     public function delete($id)
     {
+        // Les reviews liées doivent être supprimées avant le manga.
         Manga_review::where('manga_id', $id)->delete();
 
         $manga = Manga::findOrFail($id);
@@ -41,6 +43,7 @@ public function create(Request $request){
 
     public function show($id)
     {
+        // Prépare les informations du manga, ses notes par volume et ses commentaires.
         $manga = Manga::findOrFail($id);
         $noteMoyenne = Manga_review::where('manga_id', $id)
             ->whereNotNull('volume_number')
@@ -75,6 +78,7 @@ public function edit($id)
 }
 public function update(Request $request, $id)
 {
+    // Met à jour les informations et remplace l'image uniquement si nécessaire.
     $manga = Manga::findOrFail($id);
 
     $validatedData = $request->validate([

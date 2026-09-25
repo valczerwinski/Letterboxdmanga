@@ -11,6 +11,7 @@ class Manga_reviewController extends Controller
 {
     public function create(Request $request, $id)
     {
+        // Le nombre de champs de note dépend du nombre de volumes du manga.
         $manga = Manga::findOrFail($id);
         $volumeCount = (int) $manga->nbr_volume;
 
@@ -30,6 +31,7 @@ class Manga_reviewController extends Controller
 
         $validatedData = $request->validate($rules);
 
+        // Une seule review générale par utilisateur et par manga.
         Manga_review::updateOrCreate(
             [
                 'user_id' => Auth::id(),
@@ -42,6 +44,7 @@ class Manga_reviewController extends Controller
             ]
         );
 
+        // Une ligne séparée est conservée pour la note de chaque volume.
         foreach ($validatedData['notes'] as $volumeNumber => $note) {
             Manga_review::updateOrCreate(
                 [

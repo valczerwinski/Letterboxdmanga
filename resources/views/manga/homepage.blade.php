@@ -201,7 +201,12 @@
     <section class="home-hero" aria-label="Illustration Mangaboxd"></section>
 
     <nav class="home-filters" aria-label="Filtres des mangas">
-        <a class="home-filter home-filter--active" href="{{ url('/') }}?sort=az">A-Z</a>
+        <a
+            class="home-filter {{ request('sort') === 'az' ? 'home-filter--active' : '' }}"
+            href="{{ url('/') }}?sort=az"
+        >
+            A-Z
+        </a>
     </nav>
 
     <div class="home-content">

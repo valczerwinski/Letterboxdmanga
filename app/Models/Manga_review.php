@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Manga_review extends Model
 {
+    // Une review peut représenter un commentaire général ou une note de volume.
     protected $fillable = [
         'notes',
         'Commentaire',
@@ -17,6 +18,7 @@ class Manga_review extends Model
 
     public function user(): BelongsTo
     {
+        // Une review appartient à l'utilisateur qui l'a écrite.
         return $this->belongsTo(User::class);
     }
 }

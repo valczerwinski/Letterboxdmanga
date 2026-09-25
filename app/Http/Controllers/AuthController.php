@@ -16,6 +16,7 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
+        // Le mot de passe est validé puis haché avant l'enregistrement.
         $validatedData = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', 'unique:users,email'],
@@ -40,6 +41,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        // Auth::attempt vérifie l'email et le mot de passe avec le guard Laravel.
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
@@ -58,6 +60,7 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
+        // Invalide la session et régénère le token CSRF.
         Auth::logout();
 
         $request->session()->invalidate();

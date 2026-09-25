@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Stocke le chemin de l'illustration du manga.
         Schema::table('mangas', function (Blueprint $table) {
             $table->string('image')->nullable();
         });

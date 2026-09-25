@@ -1,0 +1,72 @@
+INFORMATIONS DU SITE
+====================
+
+Adresse principale
+------------------
+http://127.0.0.1:8000/
+
+Cette page affiche la homepage et la liste des mangas.
+
+Pages principales
+-----------------
+Accueil :
+http://127.0.0.1:8000/
+
+Connexion :
+http://127.0.0.1:8000/login
+
+Inscription :
+http://127.0.0.1:8000/register
+
+Administration :
+http://127.0.0.1:8000/admin
+
+L'espace d'administration est accessible uniquement aux utilisateurs connectes.
+
+Gestion des mangas
+------------------
+Creer un manga :
+http://127.0.0.1:8000/create
+
+Supprimer un manga :
+Le bouton de suppression se trouve dans l'espace d'administration, a cote de chaque manga.
+
+Modifier un manga :
+Le bouton de modification se trouve dans l'espace d'administration, a cote de chaque manga.
+
+Page d'un manga :
+http://127.0.0.1:8000/mangas/ID
+
+Remplacer ID par l'identifiant du manga.
+Exemple : http://127.0.0.1:8000/mangas/1
+
+Utilisateurs
+-----------
+Liste des utilisateurs :
+http://127.0.0.1:8000/admin/users
+
+Supprimer un utilisateur :
+Le bouton de suppression se trouve dans la liste des utilisateurs.
+
+Notes et commentaires
+---------------------
+Sur la page d'un manga, un utilisateur connecte peut :
+
+- noter chaque volume de 0.5 a 5 ;
+- modifier ses notes en les enregistrant a nouveau ;
+- ajouter un commentaire general ;
+- consulter les commentaires des autres utilisateurs ;
+- consulter la moyenne generale du manga.
+
+Navigation
+----------
+Le header contient les liens suivants :
+
+- Accueil ;
+- Connexion et inscription pour un visiteur ;
+- Deconnexion pour un utilisateur connecte.
+
+Remarque
+--------
+Les boutons "Terminer" et "En cours" sont visibles sur la homepage,
+mais ils ne sont pas encore fonctionnels.
